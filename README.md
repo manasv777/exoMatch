@@ -71,8 +71,8 @@ Incorporate stellar properties into similarity scoring
 Deploy as a public web app (e.g., Streamlit Cloud)
 
 Team:
-Sai Yadavalli
-Sidharth Yeramaddu
-Dhanvi Movva
+Sai Yadavalli,
+Sidharth Yeramaddu,
+Dhanvi Movva,
 Manas Vellaturi
 

@@ -9,9 +9,16 @@ import pickle
 from datetime import datetime
 from typing import Dict, List, Any
 import warnings
-import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.use('Agg')  # Use non-interactive backend
+# Try to import matplotlib, but make it optional for deployment
+try:
+    import matplotlib.pyplot as plt
+    import matplotlib
+    matplotlib.use('Agg')  # Use non-interactive backend
+    MATPLOTLIB_AVAILABLE = True
+except ImportError:
+    MATPLOTLIB_AVAILABLE = False
+    plt = None
+    matplotlib = None
 warnings.filterwarnings('ignore')
 
 # Import our custom modules
@@ -73,6 +80,10 @@ def generate_scatterplot(user_planet_params: Dict[str, Any]) -> str:
     Generate a 2D PCA scatterplot showing planet clusters with habitability scores.
     Returns the plot as a base64 encoded string for display in Streamlit.
     """
+    if not MATPLOTLIB_AVAILABLE:
+        print("Matplotlib not available, skipping scatterplot generation")
+        return None
+    
     try:
         # Use a subset of natural data for clustering (sample for performance)
         sample_size = min(1000, len(natural_data))

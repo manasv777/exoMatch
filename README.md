@@ -1,5 +1,7 @@
 # exoMatch
 
+https://exomatch.streamlit.app/
+
 **Find Your Planet’s Cosmic Twin**  
 exoMatch is a Streamlit app that lets you design a hypothetical planet and discover which known exoplanets are most similar — powered by NASA’s Exoplanet Archive data and our custom similarity + habitability scoring models.
 
